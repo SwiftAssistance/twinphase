@@ -10,10 +10,22 @@
     -->
     <meta name="description" content="Need a trusted electrician in Berkshire? Twin Phase Electrical offers 24/7 emergency callouts, EV charger installation, rewiring, and more. NICEIC registered & fully insured. Get your free quote today!">
    
-    <!-- Load Tailwind CSS -->
+    <!--
+      PERFORMANCE ADVISORY (FROM YOUR CODING PARTNER):
+      This <script> tag below is the main reason for a low PageSpeed score.
+      It's a "Just-in-Time" engine, great for development, but very slow for
+      production websites because it runs a large JS file in the browser.
+
+      THE FIX (for a live site):
+      When you are ready to go live, you must "build" your CSS. This means
+      using the Tailwind CLI (a tool) to scan this file and generate a
+      single, tiny, static .css file. You would then remove this script
+      and link to your static CSS file instead (e.g., <link rel="stylesheet" href="styles.css">).
+      This one change will cause the biggest jump in your performance score.
+    -->
     <script src="https://cdn.tailwindcss.com"></script>
    
-    <!-- Load Google Font: Inter -->
+    <!-- Load Google Font: Inter (Already optimized with preconnect and display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -354,7 +366,7 @@
         </nav>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#1F3A47] z-[-1] pt-24 p-6">
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#1F3A47] pt-24 p-6">
             <div class="flex flex-col items-center text-center space-y-6">
                 <a href="#services" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
                 <a href="#why-us" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Why Us</a>
@@ -668,8 +680,12 @@
 
                 <!-- Google Reviews Widget Mockup -->
                 <div class="reveal mt-12 max-w-md mx-auto bg-white/10 rounded-lg p-6 text-center text-white">
-                    <!-- SEO Alt Tag Change -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png" alt="Google Reviews logo" class="w-12 h-12 mx-auto mb-3">
+                    <!--
+                      PERFORMANCE FIX:
+                      Changed the 'src' from a large 1024px PNG file to the
+                      lightweight and scalable official SVG for the Google logo.
+                    -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Reviews logo" class="w-12 h-12 mx-auto mb-3">
                     <div class="text-xl font-bold">Rated 4.9 out of 5</div>
                     <div class="flex justify-center text-[#F5B041] my-2">
                         <!-- 5 Stars -->
@@ -804,7 +820,12 @@
 
                             <!-- Map Placeholder -->
                             <div class="mt-8 rounded-lg overflow-hidden shadow-md">
-                                <!-- SEO Iframe Title Change -->
+                                <!--
+                                  PERFORMANCE NOTE:
+                                  This map is already optimized with loading="lazy",
+                                  which is the correct way to handle it. It will not
+                                  load until the user scrolls near it.
+                                -->
                                 <iframe 
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80019.5441584!2d-0.6548981060901754!3d51.46908233777286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767b45cacad563%3A0x1d795db76ec5!2sWindsor!5e0!3m2!1sen!2suk!4v1679276957962!5m2!1sen!2suk" 
                                     class="w-full h-96"
