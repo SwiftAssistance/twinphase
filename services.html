@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TWIN PHASE ELECTRICAL - Berkshire's Premier Electricians</title>
+    <!-- Page-specific Title and Meta Description -->
+    <title>Our Electrical Services - Twin Phase Electrical, Berkshire</title>
+    <meta name="description" content="Explore the full range of electrical services offered by Twin Phase Electrical in Berkshire, including EV charger installation, EICR reports, complete rewires, and 24/7 emergency callouts.">
 
-    <!--
-      SEO META DESCRIPTION
-    -->
-    <meta name="description" content="Need a trusted electrician in Berkshire? Twin Phase Electrical offers 24/7 emergency callouts, EV charger installation, rewiring, and more. NICEIC registered & fully insured. Get your free quote today!">
-   
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
    
@@ -23,6 +20,7 @@
 
     <!--
       SEO SCHEMA MARKUP (JSON-LD)
+      This schema is specific to the services offered.
     -->
     <script type="application/ld+json">
     {
@@ -32,7 +30,7 @@
       "description": "NICEIC registered & fully insured electrician in Berkshire offering 24/7 emergency callouts, EV charger installation, rewiring, and safety inspections.",
       "telephone": "+447443523862",
       "email": "hello@twinphase.co.uk",
-      "url": "https://www.twinphase.co.uk",
+      "url": "https://www.twinphase.co.uk/services.html",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Windsor",
@@ -44,23 +42,60 @@
         "name": "Berkshire"
       },
       "openingHours": "Mo-Su 00:00-24:00",
-      "potentialAction": {
-        "@type": "ReserveAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://www.twinphase.co.uk/#contact",
-          "inLanguage": "en-GB",
-          "actionPlatform": [
-            "https://schema.org/DesktopWebPlatform",
-            "https://schema.org/IOSPlatform",
-            "https://schema.org/AndroidPlatform"
-          ]
-        },
-        "name": "Get a Free Quote"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Electrical Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emergency Electrical Callout"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EV Charger Installation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Complete Rewiring"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "EICR (Safety Inspection)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lighting Design & Installation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Fuse Board Upgrades"
+            }
+          }
+        ]
       }
     }
     </script>
 
+    <!--
+      Re-using the exact same custom styles from index.txt for consistency
+    -->
     <style>
         /* Base styles */
         html {
@@ -73,7 +108,7 @@
             overflow-x: hidden; /* Prevent horizontal scroll */
         }
        
-        /* Define Brand Colors for arbitrary values */
+        /* Brand Colors */
         /* Primary: #1F3A47 (Dark Teal/Navy) */
         /* Accent: #F5B041 (Golden Yellow) */
         /* Secondary: #00D9FF (Electric Blue) */
@@ -103,11 +138,6 @@
             }
         }
        
-        @keyframes charge-line {
-            from { width: 0; }
-            to { width: 100px; } /* Width of the charge line */
-        }
-
         @keyframes fade-in-up {
             from {
                 opacity: 0;
@@ -126,7 +156,7 @@
         }
 
         /*
-          "TWIN PHASE" SINE WAVE ANIMATION (Restored)
+          "TWIN PHASE" SINE WAVE ANIMATION
         */
         @keyframes flow {
             from {
@@ -148,28 +178,25 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 40%; /* Position waves vertically in the hero section */
+            bottom: 40%; 
             height: 200px; /* Height of the wave SVG */
-            width: 300%; /* Make it 3x screen width to cover all ground */
+            width: 300%; 
             background-repeat: repeat-x;
-            opacity: 0.3; /* Soften the effect */
+            opacity: 0.3;
             animation: flow linear infinite;
         }
 
         .wave1 {
-            /* URL-encoded SVG of a sine wave with brand yellow */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200'%3E%3Cpath d='M0,100 C150,0 350,200 500,100 S850,0 1000,100' fill='none' stroke='%23F5B041' stroke-width='4'/%3E%3C/svg%3E");
             animation-duration: 15s;
         }
 
         .wave2 {
-            /* URL-encoded SVG of a sine wave with brand blue */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200'%3E%3Cpath d='M0,100 C150,0 350,200 500,100 S850,0 1000,100' fill='none' stroke='%2300D9FF' stroke-width='4'/%3E%3C/svg%3E");
             animation-duration: 20s;
-            animation-direction: reverse; /* Move in the opposite direction */
+            animation-direction: reverse;
             opacity: 0.25;
         }
-        /* END NEW ANIMATION */
 
 
         /* Utility Classes for Animations */
@@ -272,33 +299,6 @@
         .service-card:hover::after {
             left: 0; /* Slide in on hover */
         }
-       
-        /* Testimonial carousel - CSS Scroll Snap */
-        .testimonial-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* Momentum scrolling */
-            scrollbar-width: none; /* Hide scrollbar Firefox */
-        }
-        .testimonial-carousel::-webkit-scrollbar {
-            display: none; /* Hide scrollbar Chrome/Safari */
-        }
-        .testimonial-card {
-            scroll-snap-align: center;
-            flex: 0 0 90%; /* Show one and a bit */
-            margin-right: 1rem;
-        }
-        @media (min-width: 768px) {
-            .testimonial-card {
-                flex-basis: 45%; /* Show two */
-            }
-        }
-        @media (min-width: 1024px) {
-            .testimonial-card {
-                flex-basis: 31%; /* Show three */
-            }
-        }
 
         /* Hamburger menu overlay */
         .mobile-menu {
@@ -313,7 +313,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-       
+
         /* --- NEW MODAL STYLES --- */
         .contact-modal {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -343,14 +343,16 @@
 
     <!--
       HEADER & MOBILE NAVIGATION
+      Nav links updated to point to index.html for other sections.
+      'Services' link is now the active page link.
     -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#1F3A47]/80 backdrop-blur-lg border-b border-white/10">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
            
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center space-x-3 text-white"> <!-- Link updated to index.html -->
+            <!-- Logo - Links to homepage -->
+            <a href="index.html" class="flex items-center space-x-3 text-white">
                 <div class="bg-white rounded-full p-1">
-                    <!-- UPDATED UK PLUG ICON -->
+                    <!-- UK PLUG ICON -->
                     <svg class="w-8 h-8 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
                 </div>
                 <div class="flex flex-col -space-y-1">
@@ -361,13 +363,13 @@
            
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6">
-                <!-- "HOME" LINK ADDED AND SET TO ACTIVE -->
-                <a href="index.html" class="text-[#F5B041] font-semibold transition duration-300">Home</a>
-                <!-- "SERVICES" LINK UPDATED -->
-                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Services</a>
-                <a href="#why-us" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Why Us</a>
-                <a href="#testimonials" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Reviews</a>
-                <!-- "SERVICE AREAS" LINK REMOVED -->
+                <!-- ADDED HOME LINK -->
+                <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Home</a>
+                <!-- Active link style applied to Services -->
+                <a href="services.html" class="text-[#F5B041] font-semibold transition duration-300">Services</a>
+                <a href="index.html#why-us" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Why Us</a>
+                <a href="index.html#testimonials" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Reviews</a>
+                <!-- REMOVED SERVICE AREAS LINK -->
                 <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
                 <button id="nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-2 px-5 rounded-full shadow-lg transition duration-300 ease-in-out hover:bg-white hover:shadow-yellow-300/50">
                     Contact Us
@@ -383,16 +385,15 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu Overlay -->
+        <!-- Mobile Menu Overlay - Links Updated -->
         <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#1F3A47] z-[-1] pt-24 p-6">
             <div class="flex flex-col items-center text-center space-y-6">
-                <!-- "HOME" LINK ADDED AND SET TO ACTIVE -->
-                <a href="index.html" class="text-[#F5B041] transition duration-300 text-2xl font-bold">Home</a>
-                <!-- "SERVICES" LINK UPDATED -->
-                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
-                <a href="#why-us" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Why Us</a>
-                <a href="#testimonials" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Reviews</a>
-                <!-- "SERVICE AREAS" LINK REMOVED -->
+                <!-- ADDED HOME LINK -->
+                <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Home</a>
+                <a href="services.html" class="text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
+                <a href="index.html#why-us" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Why Us</a>
+                <a href="index.html#testimonials" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Reviews</a>
+                <!-- REMOVED SERVICE AREAS LINK -->
                 <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
                 <button id="mobile-nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out text-xl mt-4">
                     Contact Us
@@ -403,12 +404,13 @@
 
     <main>
         <!--
-          HERO SECTION
+          SERVICES HERO SECTION (New)
+          A simpler, shorter hero banner for the subpage.
         -->
-        <section id="hero" class="hero-bg min-h-screen flex items-center pt-24 pb-16 relative">
+        <section id="services-hero" class="hero-bg min-h-[450px] flex items-center pt-24 pb-16 relative">
            
             <!--
-              "TWIN PHASE" WAVE ANIMATION (Restored)
+              "TWIN PHASE" WAVE ANIMATION
             -->
             <div class="twin-phase-waves" aria-hidden="true">
                 <div class="wave wave1"></div>
@@ -416,363 +418,124 @@
             </div>
 
             <div class="container mx-auto px-6 text-center text-white">
-                <!-- Added relative z-10 to keep content above animation AND mobile padding-bottom -->
-                <div class="hero-content max-w-4xl mx-auto relative z-10 pb-24 md:pb-0">
-                    <!-- Hero Text - Staggered fade-in applied by JS -->
-                    <h1 class="reveal text-5xl sm:text-7xl lg:text-8xl font-extrabold uppercase tracking-tighter text-shadow-lg" style="transition-delay: 0.1s;">
-                        POWERING
-                        <span class="text-[#F5B041]">BERKSHIRE</span>
-                        WITH EXCELLENCE
+                <div class="hero-content max-w-4xl mx-auto relative z-10">
+                    <!-- Hero Text -->
+                    <h1 class="reveal text-5xl sm:text-7xl font-extrabold uppercase tracking-tighter text-shadow-lg" style="transition-delay: 0.1s;">
+                        OUR ELECTRICAL SERVICES
                     </h1>
                     <p class="reveal text-lg md:text-2xl font-light text-gray-200 mt-6 max-w-2xl mx-auto" style="transition-delay: 0.3s;">
-                        From emergency callouts to complete rewires & EV charging, your trusted, certified electricians are here to spark joy.
+                        Comprehensive solutions for your home and business. Certified, insured, and guaranteed.
                     </p>
-                   
-                    <!-- CTAs -->
-                    <div class="reveal mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6" style="transition-delay: 0.5s;">
-                        <a href="#contact" class="w-full sm:w-auto bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-yellow-300/50 animate-pulse-glow">
-                            GET FREE QUOTE
-                        </a>
-                        <a href="tel:07443523862" class="w-full sm:w-auto border-2 border-[#00D9FF] text-white text-lg font-bold py-4 px-10 rounded-full transition duration-300 ease-in-out hover:bg-[#00D9FF] hover:text-[#1F3A47] hover:shadow-[0_0_20px_#00D9FF]">
-                            CALL: 07443 523862
-                        </a>
-                    </div>
-                   
-                    <!-- New 24/7 Info Line -->
-                    <p class="reveal text-lg text-[#F5B041] font-semibold mt-8 tracking-wide" style="transition-delay: 0.6s;">
-                        ⚡ 24/7 Emergency Service Available
-                    </p>
-                </div>
-            </div>
-           
-            <!-- Trust Badges Bar (CHANGED) -->
-            <div class="absolute bottom-0 left-0 right-0 bg-white/5 backdrop-blur-sm py-4 z-20"> <!-- Added z-20 -->
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-white/90">
-                        <span class="flex items-center text-sm font-semibold">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
-                            NICEIC Registered
-                        </span>
-                         <span class="hidden sm:inline-block text-white/30">|</span>
-                        <span class="flex items-center text-sm font-semibold">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
-                            Fully Insured
-                        </span>
-                         <span class="hidden sm:inline-block text-white/30">|</span>
-                        <span class="flex items-center text-sm font-semibold">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            5-Star Rated Service
-                        </span>
-                    </div>
                 </div>
             </div>
         </section>
 
         <!--
-          SERVICES SECTION
+          EXPANDED SERVICES SECTION (New Content)
         -->
         <section id="services" class="py-20 md:py-28 bg-[#FAFBFC]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 reveal">
                     <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        OUR SERVICES
+                        WHAT WE DO
                     </h2>
-                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We provide a full range of expert electrical solutions for your home and business.</p>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We provide a full range of expert electrical solutions. If your issue isn't listed, contact us for a free quote.</p>
                 </div>
                
+                <!-- Expanded 7-card grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
+                    
+                    <!-- Service Card 1: Emergency -->
                     <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.1s;">
                         <div class="service-icon text-6xl text-[#F5B041] mb-5">
                             <!-- SVG: Lightning Bolt -->
                             <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-3">Emergency Electrical</h3>
-                        <p class="text-gray-300">24/7 urgent repairs & fault finding. We're there when you need us most.</p>
+                        <p class="text-gray-300">24/7 urgent repairs & fault finding. We're there when you need us most for power outages, sparking, and electrical failures.</p>
                     </div>
                    
-                    <!-- Service Card 2 -->
+                    <!-- Service Card 2: EV Charger (New) -->
                     <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.2s;">
+                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
+                            <!-- SVG: UK Plug -->
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">EV Charger Installation</h3>
+                        <p class="text-gray-300">Expert installation of home and commercial electric vehicle charging stations. We handle all major brands.</p>
+                    </div>
+
+                    <!-- Service Card 3: Rewiring -->
+                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.3s;">
                         <div class="service-icon text-6xl text-[#F5B041] mb-5">
                             <!-- SVG: Home Circuit -->
                             <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6-4h.01M12 12h.01M15 12h.01M12 15h.01M15 15h.01"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-3">Complete Rewiring</h3>
-                        <p class="text-gray-300">Full property electrical installations for safety, compliance, and performance.</p>
+                        <p class="text-gray-300">Full property electrical installations for safety, compliance, and performance. Ideal for renovations and older homes.</p>
                     </div>
 
-                    <!-- Service Card 3 -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.3s;">
+                    <!-- Service Card 4: EICR (New) -->
+                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.4s;">
+                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
+                            <!-- SVG: Shield Check -->
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Safety Inspections (EICR)</h3>
+                        <p class="text-gray-300">Certified Electrical Installation Condition Reports (EICR) for landlords, homeowners, and property sales.</p>
+                    </div>
+
+                    <!-- Service Card 5: Lighting -->
+                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.5s;">
                         <div class="service-icon text-6xl text-[#F5B041] mb-5">
                             <!-- SVG: Lightbulb -->
                             <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M12 21v-1m-6.364-1.636l.707-.707"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
                         </div>
                         <h3 class="text-2xl font-bold mb-3">Lighting Design</h3>
-                        <p class="text-gray-300">Transform your spaces with smart, efficient, and beautiful lighting solutions.</p>
+                        <p class="text-gray-300">Transform your spaces with smart, efficient, and beautiful lighting solutions, from garden lighting to LED upgrades.</p>
                     </div>
 
-                    <!-- Service Cards 4, 5, 6 Removed as requested -->
+                    <!-- Service Card 6: Fuse Board (New) -->
+                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.6s;">
+                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
+                            <!-- SVG: Server/Fusebox -->
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Fuse Board Upgrades</h3>
+                        <p class="text-gray-300">Replace old fuse boxes with modern, safe consumer units (RCDs) to protect your property and comply with regulations.</p>
+                    </div>
+                    
+                    <!-- Service Card 7: General (New) - UPDATED to span full width -->
+                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center md:col-span-2 lg:col-span-3" style="transition-delay: 0.7s;">
+                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
+                            <!-- SVG: Wrench -->
+                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5c.9 0 1.6-.3 2.1-.8l8.3-8.3c.6-.6.6-1.5 0-2.1-.6-.6-1.5-.6-2.1 0l-8.3 8.3c-.5.5-.8 1.2-.8 2.1 0 1.4 1.1 2.5 2.5 2.5zM19 11.5c0 .9-.3 1.6-.8 2.1l-8.3 8.3c-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1l8.3-8.3c.5-.5 1.2-.8 2.1-.8 1.4 0 2.5 1.1 2.5 2.5z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">General Maintenance & Enquiries</h3>
+                        <p class="text-gray-300">New socket installations, light fitting replacements, outdoor power, and all other general electrical maintenance tasks. If you don't see your service listed, just ask!</p>
+                    </div>
 
                 </div>
-                
-                <!-- "Explore All Services" Button Added -->
-                <div class="mt-16 text-center reveal" style="transition-delay: 0.4s;">
-                    <!-- "BUTTON LINK UPDATED TO services.html" -->
-                    <a href="services.html" class="inline-block bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-yellow-300/50">
-                        Explore All Services
-                    </a>
-                </div>
-                
             </div>
         </section>
 
         <!--
-          WHY CHOOSE US SECTION (Asymmetric)
+          WHY CHOOSE US SECTION (Copied from index.txt)
+          REMOVED AS REQUESTED
         -->
-        <section id="why-us" class="py-20 md:py-28 bg-[#FAFBFC] relative overflow-hidden">
-            <!-- Subtle Circuit Watermark -->
-            <div class="absolute inset-0 opacity-05 z-0" style="background-image: url(&quot;data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 25 H25 V0 M75 0 V25 H100 M100 75 H75 V100 M25 100 V75 H0 M50 25 V0 M50 100 V75 M0 50 H25 M100 50 H75 M50 50 H25 V25 H50 V50 H75 V25 H50 V50 H75 V75 H50 V50' fill='none' stroke='%231F3A47' stroke-width='0.5' stroke-opacity='0.1'/%3E%3C/svg%3E&quot;);"></div>
-           
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-16 reveal">
-                    <!-- SEO Heading Change -->
-                    <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        WHY CHOOSE TWIN PHASE?
-                    </h2>
-                    <!-- SEO Content Change -->
-                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Your trusted, local Berkshire electrician for premium service and peace of mind.</p>
-                </div>
-               
-                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                   
-                    <!-- Left Side: REPLACED STATS -->
-                    <div class="w-full lg:w-2/5 grid grid-cols-2 gap-8 text-center">
-                        <!-- New Stat 1 -->
-                        <div class="reveal p-4" style="transition-delay: 0.1s;">
-                            <div class="text-6xl font-extrabold text-[#F5B041]">
-                                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            </div>
-                            <div class="text-xl font-semibold text-[#1F3A47] mt-3">Local & Trusted</div>
-                        </div>
-                        <!-- New Stat 2 -->
-                        <div class="reveal p-4" style="transition-delay: 0.2s;">
-                            <div class="text-6xl font-extrabold text-[#F5B041]">
-                                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <div class="text-xl font-semibold text-[#1F3A47] mt-3">24/7 Service</div>
-                        </div>
-                        <!-- New Stat 3 -->
-                        <div class="reveal p-4" style="transition-delay: 0.3s;">
-                            <div class="text-6xl font-extrabold text-[#F5B041]">
-                                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
-                            </div>
-                            <div class="text-xl font-semibold text-[#1F3A47] mt-3">Fully Insured</div>
-                        </div>
-                        <!-- New Stat 4 -->
-                        <div class="reveal p-4" style="transition-delay: 0.4s;">
-                            <div class="text-6xl font-extrabold text-[#F5B041]">
-                                <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764c.586 0 .868.728.432 1.154l-3.23 3.518a.7.7 0 01-1.004 0l-3.23-3.518C11.368 10.728 11.65 10 12.236 10H14zM4 14h4.764c.586 0 .868.728.432 1.154l-3.23 3.518a.7.7 0 01-1.004 0l-3.23-3.518C.368 14.728.65 14 1.236 14H4zm16 0h4.764c.586 0 .868.728.432 1.154l-3.23 3.518a.7.7 0 01-1.004 0l-3.23-3.518c-.436-.426-.154-1.154.432-1.154H16z"></path></svg>
-                            </div>
-                            <div class="text-xl font-semibold text-[#1F3A47] mt-3">100% Satisfaction</div>
-                        </div>
-                    </div>
-                   
-                    <!-- Right Side: Benefit Cards -->
-                    <div class="w-full lg:w-3/5 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Benefit Card 1 -->
-                        <div class="reveal bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4" style="transition-delay: 0.5s;">
-                            <div class="flex-shrink-0 text-[#F5B041] bg-[#1F3A47] rounded-full p-3">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-[#1F3A47]">Rapid Response</h4>
-                                <p class="text-gray-600">Emergency callouts in Berkshire & surrounding areas, 24 hours a day.</p>
-                            </div>
-                        </div>
-                       
-                        <!-- Benefit Card 2 -->
-                        <div class="reveal bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4" style="transition-delay: 0.6s;">
-                            <div class="flex-shrink-0 text-[#F5B041] bg-[#1F3A47] rounded-full p-3">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-[#1F3A47]">Fully Licensed & Insured</h4>
-                                <p class="text-gray-600">NICEIC registered electricians. Your safety and compliance are guaranteed.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit Card 3 -->
-                        <div class="reveal bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4" style="transition-delay: 0.7s;">
-                            <div class="flex-shrink-0 text-[#F5B041] bg-[#1F3A47] rounded-full p-3">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2V7a2 2 0 00-2-2H9a2 2 0 00-2 2v2m0 0h10a2 2 0 002-2V7m-4 5v2m0 0v2m0-2h2m-2 0h-2"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-[#1F3A47]">Transparent Pricing</h4>
-                                <p class="text-gray-600">No hidden fees, ever. We provide detailed, upfront quotes for all work.</p>
-                            </div>
-                        </div>
-
-                        <!-- Benefit Card 4 -->
-                        <div class="reveal bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4" style="transition-delay: 0.8s;">
-                            <div class="flex-shrink-0 text-[#F5B041] bg-[#1F3A47] rounded-full p-3">
-                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold text-[#1F3A47]">Quality Guaranteed</h4>
-                                <p class="text-gray-600">All work is certified and backed by our comprehensive 12-month guarantee.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!--
-          TRUST / TESTIMONIALS SECTION
+          TRUST / TESTIMONIALS SECTION (Copied from index.txt)
+          REMOVED AS REQUESTED
         -->
-        <section id="testimonials" class="py-20 md:py-28 bg-[#1F3A47] border-t-4 border-[#F5B041]">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <!-- SEO Heading Change -->
-                    <h2 class="section-heading section-heading-dark text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        WHAT OUR BERKSHIRE CLIENTS SAY
-                    </h2>
-                    <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">See what your neighbours are saying about us.</p>
-                </div>
-
-                <!-- Testimonial Carousel -->
-                <div class="testimonial-carousel pb-8 reveal">
-                    <!-- Card 1 -->
-                    <div class="testimonial-card bg-white rounded-lg shadow-lg p-8">
-                        <div class="flex text-[#F5B041] mb-3">
-                            <!-- 5 Stars -->
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        </div>
-                        <p class="text-gray-700 italic text-lg mb-4">"Twin Phase were lifesavers! Our power went out at 10 PM, and they were here within 30 minutes. Professional, fast, and so courteous."</p>
-                        <div class="flex items-center">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/EBF4FF/76A9FA?text=S.D." alt="Sarah D.">
-                            <div>
-                                <div class="font-bold text-[#1F3A47]">Sarah D.</div>
-                                <div class="text-sm text-gray-500">Windsor, Berkshire</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="testimonial-card bg-white rounded-lg shadow-lg p-8">
-                        <div class="flex text-[#F5B041] mb-3">
-                            <!-- 5 Stars -->
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        </div>
-                        <p class="text-gray-700 italic text-lg mb-4">"The team installed our new EV charger. The work was incredibly tidy, the price was transparent, and they explained everything perfectly."</p>
-                        <div class="flex items-center">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/FFF3E0/FFA726?text=M.P." alt="Mark P.">
-                            <div>
-                                <div class="font-bold text-[#1F3A47]">Mark P.</div>
-                                <div class="text-sm text-gray-500">Eton Wick</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="testimonial-card bg-white rounded-lg shadow-lg p-8">
-                        <div class="flex text-[#F5B041] mb-3">
-                            <!-- 5 Stars -->
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        </div>
-                        <p class="text-gray-700 italic text-lg mb-4">"Faultless EICR report for our property sale. They found a small issue and fixed it on the spot. Highly recommend for any compliance work."</p>
-                        <div class="flex items-center">
-                            <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/EDE7F6/9575CD?text=R.J." alt="Richard J.">
-                            <div>
-                                <div class="font-bold text-[#1F3A47]">Richard J.</div>
-                                <div class="text-sm text-gray-500">Slough</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Google Reviews Widget Mockup -->
-                <div class="reveal mt-12 max-w-md mx-auto bg-white/10 rounded-lg p-6 text-center text-white">
-                    <!-- SEO Alt Tag Change -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png" alt="Google Reviews logo" class="w-12 h-12 mx-auto mb-3">
-                    <div class="text-xl font-bold">Rated 4.9 out of 5</div>
-                    <div class="flex justify-center text-[#F5B041] my-2">
-                        <!-- 5 Stars -->
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 7.02l6.572-.955L10 0l2.939 6.065 6.572.955-4.756 4.625 1.123 6.545z"></path></svg>
-                    </div>
-                    <div class="text-sm text-gray-300">Based on 50+ Google Reviews</div>
-                </div>
-            </div>
-        </section>
 
         <!--
-          SERVICE AREAS SECTION
+          SERVICE AREAS SECTION (Copied from index.txt)
+          REMOVED AS REQUESTED
         -->
-        <section id="areas" class="py-20 md:py-28 bg-[#FAFBFC]">
-            <div class="container mx-auto px-6 text-center">
-                <div class="reveal mb-12">
-                    <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        PROUDLY SERVING BERKSHIRE
-                    </h2>
-                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Your local electricians for the Thames Valley & all surrounding areas.</p>
-                </div>
-               
-                <!-- Simple list of areas -->
-                <div class="reveal max-w-4xl mx-auto">
-                    <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Windsor
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Reading
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Slough
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Maidenhead
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Bracknell
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Ascot
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                            Eton
-                        </span>
-                        <span class="flex items-center text-xl font-medium text-[#1F3A47] p-2 bg-white shadow rounded-lg">
-                            <svg class="w-5 h-5 mr-2 text-[#F5B041]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenDDEodd"></path></svg>
-                            Wraysbury
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!--
-          RESTORED FINAL CTA SECTION
+          RESTORED FINAL CTA SECTION (Copied from index.txt)
         -->
         <section id="cta-banner" class="py-20 md:py-28 bg-[#F5B041]">
             <div class="container mx-auto px-6 text-center">
@@ -783,6 +546,7 @@
                     <p class="text-xl md:text-2xl font-medium text-[#1F3A47]/80 mt-6">
                         Get your free, no-obligation quote today from Berkshire's most trusted electricians.
                     </p>
+                    <!-- Link updated to point to contact section on this page -->
                     <a href="#contact" class="inline-block mt-10 bg-[#1F3A47] text-white text-xl font-bold py-5 px-14 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 hover:bg-black">
                         REQUEST FREE QUOTE
                     </a>
@@ -795,7 +559,7 @@
 
 
         <!--
-          CONTACT FORM SECTION
+          CONTACT FORM SECTION (Copied from index.txt)
         -->
         <section id="contact" class="py-20 md:py-28 bg-[#1F3A47] text-gray-300">
             <div class="container mx-auto px-6">
@@ -903,14 +667,14 @@
     </main>
 
     <!--
-      FOOTER
+      FOOTER (Copied from index.txt, links updated)
     -->
     <footer class="bg-[#1F3A47] text-gray-300 py-16">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
                 <!-- Column 1: Logo & Social -->
                 <div>
-                    <a href="index.html" class="flex justify-center md:justify-start items-center space-x-3 text-white mb-4"> <!-- Link updated to index.html -->
+                    <a href="index.html" class="flex justify-center md:justify-start items-center space-x-3 text-white mb-4">
                         <div class="bg-white rounded-full p-1">
                             <!-- UPDATED UK PLUG ICON -->
                             <svg class="w-8 h-8 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
@@ -923,7 +687,7 @@
                     <p class="text-gray-400 text-sm max-w-xs mx-auto md:mx-0">
                         Berkshire's trusted, NICEIC certified electricians. Powering your projects with excellence.
                     </p>
-                    <!-- Social Icons - REPLACED WITH FONT AWESOME -->
+                    <!-- Social Icons - MADE LARGER -->
                     <div class="flex justify-center md:justify-start space-x-4 mt-6">
                         <a href="#" class="text-gray-400 hover:text-[#F5B041] transition duration-300" aria-label="Facebook">
                             <i class="fab fa-facebook-f text-2xl"></i>
@@ -934,16 +698,15 @@
                     </div>
                 </div>
                
-                <!-- Column 2: Quick Links -->
+                <!-- Column 2: Quick Links (Links updated) -->
                 <div>
                     <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
                     <ul class="space-y-2">
-                        <!-- "HOME" LINK ADDED -->
+                        <!-- ADDED HOME LINK -->
                         <li><a href="index.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Home</a></li>
-                        <!-- "SERVICES" LINK UPDATED -->
                         <li><a href="services.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Services</a></li>
-                        <li><a href="#why-us" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Why Choose Us</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Testimonials</a></li>
+                        <li><a href="index.html#why-us" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Why Choose Us</a></li>
+                        <li><a href="index.html#testimonials" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Testimonials</a></li>
                         <!-- "SERVICE AREAS" LINK REMOVED -->
                         <li><a href="#contact" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Get a Quote</a></li>
                         <li><a href="tel:07443523862" class="text-red-500 font-bold hover:text-red-400 transition duration-300">24/7 Emergency Call</a></li>
@@ -978,7 +741,7 @@
 
 
     <!--
-      MOBILE STICKY CALL-NOW BAR
+      MOBILE STICKY CALL-NOW BAR (Copied from index.txt)
     -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#1F3A47] p-3 shadow-[0_-5px_15px_rgba(0,0,0,0.2)] flex justify-around items-center border-t-2 border-[#F5B041] z-40">
         <a href="tel:07443523862" class="flex-1 text-center bg-[#F5B041] text-[#1F3A47] text-lg font-extrabold py-3 px-6 rounded-lg shadow-lg">
