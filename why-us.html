@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page-specific Title and Meta Description -->
+    <title>Why Choose Us - Twin Phase Electrical, Berkshire</title>
+    <meta name="description" content="Find out why Twin Phase Electrical is the top choice for electricians in Berkshire. We are NICEIC registered, City & Guilds certified, fully insured, and offer a 5-star rated service.">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <!-- Load Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+   
+    <!-- ADDED FONT AWESOME STYLESHEET -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--
+      SEO SCHEMA MARKUP (JSON-LD)
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "name": "TWIN PHASE ELECTRICAL",
+      "description": "NICEIC registered, City & Guilds certified, and fully insured electrician in Berkshire with 10+ years of experience. Offering 24/7 emergency callouts, EV charger installation, rewiring, and safety inspections.",
+      "telephone": "+447443523862",
+      "email": "hello@twinphase.co.uk",
+      "url": "https://www.twinphase.co.uk/why-us.html",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Windsor",
+        "addressRegion": "Berkshire",
+        "addressCountry": "UK"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Berkshire"
+      },
+      "openingHours": "Mo-Su 00:00-24:00"
+    }
+    </script>
+
+    <!--
+      Re-using the exact same custom styles from index.html for consistency
+    -->
+    <style>
+        /* Base styles */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFBFC;
+            color: #2C3E50;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+       
+        /* Brand Colors */
+        /* Primary: #1F3A47 (Dark Teal/Navy) */
+        /* Accent: #F5B041 (Golden Yellow) */
+        /* Secondary: #00D9FF (Electric Blue) */
+        /* Background: #FAFBFC (Off-white) */
+        /* Text: #2C3E50 (Charcoal) */
+
+        /* Custom Keyframe Animations */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 15px 0px rgba(245, 176, 65, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 25px 8px rgba(245, 176, 65, 0.8);
+                transform: scale(1.03);
+            }
+        }
+       
+        @keyframes pulse-red {
+            0%, 100% {
+                box-shadow: 0 0 8px 0px rgba(239, 68, 68, 0.7);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 14px 4px rgba(239, 68, 68, 1);
+                transform: scale(1.05);
+            }
+        }
+       
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+       
+        @keyframes gradient-bg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /*
+          "TWIN PHASE" SINE WAVE ANIMATION
+        */
+        @keyframes flow {
+            from {
+                background-position-x: 0;
+            }
+            to {
+                background-position-x: -1000px; /* Must match SVG width */
+            }
+        }
+
+        .twin-phase-waves {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 1; /* Above bg, below content */
+        }
+        
+        .wave {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 40%; 
+            height: 200px; /* Height of the wave SVG */
+            width: 300%; 
+            background-repeat: repeat-x;
+            opacity: 0.3;
+            animation: flow linear infinite;
+        }
+
+        .wave1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200'%3E%3Cpath d='M0,100 C150,0 350,200 500,100 S850,0 1000,100' fill='none' stroke='%23F5B041' stroke-width='4'/%3E%3C/svg%3E");
+            animation-duration: 15s;
+        }
+
+        .wave2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200'%3E%3Cpath d='M0,100 C150,0 350,200 500,100 S850,0 1000,100' fill='none' stroke='%2300D9FF' stroke-width='4'/%3E%3C/svg%3E");
+            animation-duration: 20s;
+            animation-direction: reverse;
+            opacity: 0.25;
+        }
+
+
+        /* Utility Classes for Animations */
+        .animate-pulse-glow {
+            animation: pulse-glow 2.5s infinite ease-in-out;
+        }
+       
+        /* Scroll-triggered reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section heading "charge line" animation */
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+            color: #1F3A47;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            background-color: #F5B041;
+            width: 0;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s; /* Added delay */
+        }
+        .reveal.visible .section-heading::after {
+            width: 80px;
+        }
+       
+        /* Dark section heading "charge line" */
+        .section-heading-dark {
+            color: #FAFBFC;
+        }
+        .section-heading-dark::after {
+            background-color: #F5B041;
+        }
+
+        /* Hero circuit background */
+        .hero-bg {
+            position: relative;
+            background: linear-gradient(135deg, #1F3A47 0%, #1a2e38 50%, #1F3A47 100%);
+            background-size: 400% 400%;
+            animation: gradient-bg 15s ease infinite;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 25 H25 V0 M75 0 V25 H100 M100 75 H75 V100 M25 100 V75 H0 M50 25 V0 M50 100 V75 M0 50 H25 M100 50 H75 M50 50 H25 V25 H50 V50 H75 V25 H50 V50 H75 V75 H50 V50' fill='none' stroke='%23F5B041' stroke-width='0.5' stroke-opacity='0.15'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            animation: circuit-pulse 8s infinite alternate;
+        }
+        @keyframes circuit-pulse {
+            from { opacity: 0.1; transform: scale(1); }
+            to { opacity: 0.3; transform: scale(1.02); }
+        }
+
+        /* Testimonial carousel - CSS Scroll Snap */
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch; /* Momentum scrolling */
+            scrollbar-width: none; /* Hide scrollbar Firefox */
+        }
+        .testimonial-carousel::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+        .testimonial-card {
+            scroll-snap-align: center;
+            flex: 0 0 90%; /* Show one and a bit */
+            margin-right: 1rem;
+        }
+        @media (min-width: 768px) {
+            .testimonial-card {
+                flex-basis: 45%; /* Show two */
+            }
+        }
+        @media (min-width: 1024px) {
+            .testimonial-card {
+                flex-basis: 31%; /* Show three */
+            }
+        }
+
+        /* Hamburger menu overlay */
+        .mobile-menu {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .mobile-menu.hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+            pointer-events: none;
+        }
+        .mobile-menu.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NEW MODAL STYLES --- */
+        .contact-modal {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .contact-modal.hidden {
+            opacity: 0;
+            transform: scale(0.95);
+            pointer-events: none;
+        }
+        .contact-modal.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out 0.1s;
+        }
+        .contact-modal.hidden .modal-content {
+            transform: translateY(20px);
+        }
+        .contact-modal.visible .modal-content {
+            transform: translateY(0);
+        }
+       
+    </style>
+</head>
+<body class="bg-[#FAFBFC]">
+
+    <!--
+      HEADER & MOBILE NAVIGATION
+      Nav links updated to point to index.html for other sections.
+      'Why Us' link is now the active page link.
+    -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#1F3A47]/80 backdrop-blur-lg border-b border-white/10">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+           
+            <!-- Logo - Links to homepage -->
+            <a href="index.html" class="flex items-center space-x-3 text-white">
+                <div class="bg-white rounded-full p-1">
+                    <!-- UK PLUG ICON -->
+                    <svg class="w-8 h-8 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
+                </div>
+                <div class="flex flex-col -space-y-1">
+                    <span class="text-xl font-extrabold tracking-tight">TWIN PHASE</span>
+                    <span class="text-sm font-medium text-gray-300">ELECTRICAL</span>
+                </div>
+            </a>
+           
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Home</a>
+                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Services</a>
+                <!-- Active link style applied to Why Us -->
+                <a href="why-us.html" class="text-[#F5B041] font-semibold transition duration-300">Why Us</a>
+                <!-- Reviews link points to homepage -->
+                <a href="testimonials.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Reviews</a>
+                <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
+                <button id="nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-2 px-5 rounded-full shadow-lg transition duration-300 ease-in-out hover:bg-white hover:shadow-yellow-300/50">
+                    Contact Us
+                </button>
+            </div>
+           
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay - Links Updated -->
+        <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#1F3A47] z-[-1] pt-24 p-6">
+            <div class="flex flex-col items-center text-center space-y-6">
+                <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Home</a>
+                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
+                <!-- Active link style applied to Why Us -->
+                <a href="why-us.html" class="text-[#F5B041] transition duration-300 text-2xl font-bold">Why Us</a>
+                <!-- Reviews link points to homepage -->
+                <a href="testimonials.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Reviews</a>
+                <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
+                <button id="mobile-nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out text-xl mt-4">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--
+          WHY US HERO SECTION (New)
+        -->
+        <section id="why-us-hero" class="hero-bg min-h-[450px] flex items-center pt-24 pb-16 relative">
+           
+            <!--
+              "TWIN PHASE" WAVE ANIMATION
+            -->
+            <div class="twin-phase-waves" aria-hidden="true">
+                <div class="wave wave1"></div>
+                <div class="wave wave2"></div>
+            </div>
+
+            <div class="container mx-auto px-6 text-center text-white">
+                <div class="hero-content max-w-4xl mx-auto relative z-10">
+                    <!-- Hero Text -->
+                    <h1 class="reveal text-5xl sm:text-7xl font-extrabold uppercase tracking-tighter text-shadow-lg" style="transition-delay: 0.1s;">
+                        WHY CHOOSE US
+                    </h1>
+                    <p class="reveal text-lg md:text-2xl font-light text-gray-200 mt-6 max-w-2xl mx-auto" style="transition-delay: 0.3s;">
+                        Discover the Twin Phase difference. We're Berkshire's first choice for reliable, certified, and 5-star rated electrical work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!--
+          NEW "ABOUT US" SECTION
+        -->
+        <section id="about-us" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    
+                    <!-- Left Column: About Text -->
+                    <div class="w-full lg:w-1/2 reveal">
+                        <h2 class="section-heading text-left text-4xl md:text-5xl font-extrabold uppercase tracking-tight !transform-none">
+                            OUR STORY: <br class="hidden md:block">THE BEST OF BOTH WORLDS
+                        </h2>
+                        <div class="text-lg text-gray-600 mt-8 space-y-4">
+                            <p>
+                                We are a <span class="font-semibold text-[#1F3A47]">newly founded, local Berkshire business</span> with a fresh approach to customer service. But our foundation is built on rock-solid expertise.
+                            </p>
+                            <p>
+                                Twin Phase Electrical was started with a simple mission: to bring trustworthy, high-quality, and transparent electrical services to our community. We are founded on <span class="font-semibold text-[#1F3A47]">over 10+ years of hands-on, industry experience</span>, covering everything from complex commercial rewires to domestic emergency callouts.
+                            </p>
+                            <p>
+                                You get the best of both worlds: the personal, friendly service of a local business that truly cares about its reputation, combined with the deep knowledge and professionalism you'd expect from a large, established firm.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Icon Graphic -->
+                    <div class="w-full lg:w-1/2 reveal" style="transition-delay: 0.2s;">
+                        <div class="bg-[#1F3A47] text-[#F5B041] rounded-xl shadow-2xl p-10 flex flex-col items-center justify-center text-center">
+                            <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            <h3 class="text-3xl font-bold text-white mt-4">10+ Years Experience</h3>
+                            <p class="text-lg text-gray-300 mt-2">Certified. Insured. Reliable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--
+          "OUR QUALIFICATIONS" SECTION
+        -->
+        <section id="qualifications" class="py-20 md:py-28 bg-[#FAFBFC] border-y border-gray-200">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
+                        YOUR SAFETY IS OUR PRIORITY
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Our qualifications are your guarantee of safe, compliant, and professional workmanship.</p>
+                </div>
+               
+                <!-- 3-Column Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Qualification Card 1: NICEIC -->
+                    <div class="reveal bg-white border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.1s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">NICEIC Registered</h4>
+                            <p class="text-gray-600 mt-2">As proud members of the NICEIC, the UK's leading body for electrical contractors, all our work is assessed annually to ensure it meets the highest standards of safety and technical excellence.</p>
+                        </div>
+                    </div>
+                   
+                    <!-- Qualification Card 2: City & Guilds -->
+                    <div class="reveal bg-white border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.2s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002-2h2a2 2 0 002 2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">City & Guilds Certified</h4>
+                            <p class="text-gray-600 mt-2">Our electricians are fully qualified and hold City & Guilds certifications, including the latest 18th Edition wiring regulations. This ensures we are trained to the highest industry standards.</p>
+                        </div>
+                    </div>
+
+                    <!-- Qualification Card 3: Fully Insured -->
+                    <div class="reveal bg-white border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.3s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">Fully Insured</h4>
+                            <p class="text-gray-600 mt-2">We carry comprehensive Public Liability Insurance. This gives you complete peace of mind that in the unlikely event of an accident, you and your property are fully protected.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--
+          TRUST / TESTIMONIALS SECTION (RE-FRAMED)
+        -->
+        <!-- 
+          REMOVED THIS ENTIRE SECTION (id="testimonials")
+          TO AVOID REPEATING CONTENT FROM THE HOMEPAGE.
+        -->
+
+    </main>
+
+    <!--
+      FOOTER (Links Updated to match index.html)
+    -->
+    <footer class="bg-[#1F3A47] text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+                <!-- Column 1: Logo & Social -->
+                <div>
+                    <a href="index.html" class="flex justify-center md:justify-start items-center space-x-3 text-white mb-4">
+                        <div class="bg-white rounded-full p-1">
+                            <!-- UPDATED UK PLUG ICON -->
+                            <svg class="w-8 h-8 text-[#F5B041]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
+                        </div>
+                        <div class="flex flex-col -space-y-1">
+                            <span class="text-xl font-extrabold tracking-tight">TWIN PHASE</span>
+                            <span class="text-sm font-medium text-gray-300">ELECTRICAL</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-400 text-sm max-w-xs mx-auto md:mx-0">
+                        Berkshire's trusted, NICEIC certified electricians. Powering your projects with excellence.
+                    </p>
+                    <!-- Social Icons - MADE LARGER -->
+                    <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                        <a href="#" class="text-gray-400 hover:text-[#F5B041] transition duration-300" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-[#F5B041] transition duration-300" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+               
+                <!-- Column 2: Quick Links (UPDATED to match index.html) -->
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Home</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Services</a></li>
+                        <li><a href="why-us.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Why Choose Us</a></li>
+                        <li><a href="testimonials.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Reviews</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Get a Quote</a></li>
+                        <li><a href="tel:07443523862" class="text-red-500 font-bold hover:text-red-400 transition duration-300">24/7 Emergency Call</a></li>
+                    </ul>
+                </div>
+               
+                <!-- Column 3: Contact Info -->
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Contact Us</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                            <span>Windsor, Berkshire, UK</span>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.76a11.03 11.03 0 006.97 6.97l.76-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                             <a href="tel:07443523862" class="hover:text-[#F5B041]">07443 523862</a>
+                        </li>
+                        <li class="flex items-center justify-center md:justify-start">
+                            <svg class="w-5 h-5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 11.884l7.997-6M2 13h16V7H2v6z"></path><path fill-rule="evenodd" d="M18 5H2a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2zM2 6.111l8 4.444 8-4.444V7H2v-.889z" clip-rule="evenodd"></path></svg>
+                            <a href="mailto:hello@twinphase.co.uk" class="hover:text-[#F5B041]">hello@twinphase.co.uk</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Twin Phase Electrical. All rights reserved. | Licensed & Insured | NICEIC Registered</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--
+      MOBILE STICKY CALL-NOW BAR
+    -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#1F3A47] p-3 shadow-[0_-5px_15px_rgba(0,0,0,0.2)] flex justify-around items-center border-t-2 border-[#F5B041] z-40">
+        <a href="tel:07443523862" class="flex-1 text-center bg-[#F5B041] text-[#1F3A47] text-lg font-extrabold py-3 px-6 rounded-lg shadow-lg">
+            📞 CALL NOW (24/7)
+        </a>
+    </div>
+
+    <!--
+      NEW: CONTACT MODAL (POP-UP FORM)
+    -->
+    <div id="contact-modal" class="contact-modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <!-- Modal Backdrop -->
+        <div id="modal-backdrop" class="fixed inset-0 bg-black/70 backdrop-blur-sm"></div>
+       
+        <!-- Modal Content -->
+        <div class="modal-content relative bg-white w-full max-w-lg rounded-xl shadow-2xl z-10">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-[#1F3A47]">Contact Us</h3>
+                <button id="modal-close-btn" class="text-gray-400 hover:text-red-500 transition-colors">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+           
+            <!-- Modal Body: Web3Forms -->
+            <div class="p-6">
+                <!-- This div will show success/error messages -->
+                <div id="modal-form-result" class="text-lg"></div>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="modal-success-msg" class="hidden text-center">
+                    <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                        <svg class="h-10 w-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1F3A47] mb-2">Message Sent!</h3>
+                    <p class="text-gray-600">Thank you for getting in touch. We'll reply as soon as possible.</p>
+                </div>
+
+                <!-- Form (shown by default) -->
+                <form id="modal-contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    
+                    <!-- 
+                      IMPORTANT: REPLACE WITH YOUR KEY
+                      Get your key from https://web3forms.com
+                    -->
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    
+                    <!-- This will be the email subject -->
+                    <input type="hidden" name="subject" value="New Contact Form Submission from Twin Phase Electrical">
+                    <input type="hidden" name="from_name" value="Twin Phase Website">
+                    
+                    <!-- Honey-pot spam trap -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <!-- Form Fields -->
+                    <div>
+                        <label for="modal_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" name="name" id="modal_name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
+                    </div>
+                    
+                    <div>
+                        <label for="modal_email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                        <input type="email" name="email" id="modal_email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
+                    </div>
+
+                    <div>
+                        <label for="modal_phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" name="phone" id="modal_phone" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
+                    </div>
+
+                    <div>
+                        <label for="modal_message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="modal_message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg"></textarea>
+                    </div>
+
+                    <div>
+                        <button id="modal-submit-btn" type="submit" class="w-full bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-3 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-yellow-300/50">
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--
+      JAVASCRIPT
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Mobile Menu Toggle ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    mobileMenu.classList.toggle('visible');
+                    menuIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
+            }
+           
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only close if it's a standard link, not the modal button
+                    if(link.getAttribute('href')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('visible');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                });
+            });
+
+            // --- Intersection Observer for Scroll Animations ---
+            const revealElements = document.querySelectorAll('.reveal');
+           
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+           
+            // --- NEW: MODAL SCRIPT ---
+            const contactModal = document.getElementById('contact-modal');
+            const navContactBtn = document.getElementById('nav-contact-btn');
+            const mobileNavContactBtn = document.getElementById('mobile-nav-contact-btn');
+            const modalBackdrop = document.getElementById('modal-backdrop');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            const modalContactForm = document.getElementById('modal-contact-form');
+            const modalSubmitBtn = document.getElementById('modal-submit-btn');
+            
+            // --- THIS WAS THE LINE WITH THE ERROR ---
+            // It was broken before. This is the corrected line:
+            const modalFormResult = document.getElementById('modal-form-result');
+            // --- END OF FIX ---
+
+            const modalSuccessMsg = document.getElementById('modal-success-msg');
+
+            // Function to open the modal
+            const openModal = () => {
+                contactModal.classList.remove('hidden');
+                contactModal.classList.add('visible');
+            };
+
+            // Function to close the modal
+            const closeModal = () => {
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('visible');
+            };
+
+            // Event Listeners to open
+            if (navContactBtn) navContactBtn.addEventListener('click', openModal);
+            if (mobileNavContactBtn) {
+                mobileNavContactBtn.addEventListener('click', () => {
+                    // Close mobile menu first, then open modal
+                    if (mobileMenu.classList.contains('visible')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('visible');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
+                    openModal();
+                });
+            }
+
+            // Event Listeners to close
+            if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+
+            // --- Web3Forms Submission for Modal ---
+            if (modalContactForm) {
+                modalContactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    // Check for honeypot
+                    if (this.botcheck.value) {
+                        return; // Bot detected
+                    }
+
+                    const formData = new FormData(this);
+                    const originalButtonText = modalSubmitBtn.innerHTML;
+                    modalSubmitBtn.disabled = true;
+                    modalSubmitBtn.innerHTML = "Sending...";
+                    if(modalFormResult) modalFormResult.innerHTML = "";
+
+                    fetch(this.action, {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // On success, hide form and show success message
+                            modalContactForm.classList.add('hidden');
+                            modalSuccessMsg.classList.remove('hidden');
+                        } else {
+                            // On error, show error message
+                            console.error('Error from Web3Forms:', data);
+                            if(modalFormResult) modalFormResult.innerHTML = `<span class="text-red-600">${data.message || "An error occurred."}</span>`;
+                        }
+                    })
+                    .catch(error => {
+                        // On network error
+                        console.error('Submission Error:', error);
+                        if(modalFormResult) modalFormResult.innerHTML = "<span class='text-red-600'>An error occurred. Please try again.</span>";
+                    })
+                    .finally(() => {
+                        // Re-enable button
+                        modalSubmitBtn.disabled = false;
+                        modalSubmitBtn.innerHTML = originalButtonText;
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
