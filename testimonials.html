@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Page-specific Title and Meta Description -->
-    <title>Our Electrical Services - Twin Phase Electrical, Berkshire</title>
-    <meta name="description" content="Explore the full range of electrical services offered by Twin Phase Electrical in Berkshire, including EV charger installation, EICR reports, complete rewires, and 24/7 emergency callouts.">
+    <title>Customer Reviews - Twin Phase Electrical, Berkshire</title>
+    <meta name="description" content="See what our customers in Berkshire are saying. Read 5-star reviews for Twin Phase Electrical's emergency callouts, EV charger installations, and rewiring services.">
 
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,81 +20,32 @@
 
     <!--
       SEO SCHEMA MARKUP (JSON-LD)
-      This schema is specific to the services offered.
     -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Electrician",
       "name": "TWIN PHASE ELECTRICAL",
-      "description": "NICEIC registered & fully insured electrician in Berkshire offering 24/7 emergency callouts, EV charger installation, rewiring, and safety inspections.",
+      "description": "Read 5-star customer reviews for Twin Phase Electrical, Berkshire's trusted NICEIC registered electrician.",
       "telephone": "+447443523862",
       "email": "hello@twinphase.co.uk",
-      "url": "https://www.twinphase.co.uk/services.html",
+      "url": "https://www.twinphase.co.uk/reviews.html",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Windsor",
         "addressRegion": "Berkshire",
         "addressCountry": "UK"
       },
-      "areaServed": {
-        "@type": "Place",
-        "name": "Berkshire"
-      },
-      "openingHours": "Mo-Su 00:00-24:00",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Electrical Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Emergency Electrical Callout"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "EV Charger Installation"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Complete Rewiring"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "EICR (Safety Inspection)"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Lighting Design & Installation"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Fuse Board Upgrades"
-            }
-          }
-        ]
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "50"
       }
     }
     </script>
 
     <!--
-      Re-using the exact same custom styles from index.txt for consistency
+      Re-using the exact same custom styles from index.html for consistency
     -->
     <style>
         /* Base styles */
@@ -269,37 +220,6 @@
             to { opacity: 0.3; transform: scale(1.02); }
         }
 
-        /* Service card hover effect */
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 40px 0px rgba(0, 217, 255, 0.2);
-        }
-        .service-card .service-icon {
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .service-card:hover .service-icon {
-            transform: scale(1.1);
-            color: #00D9FF; /* Electric blue on hover */
-        }
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: -100%; /* Start off-screen */
-            width: 100%;
-            height: 4px;
-            background: #00D9FF;
-            transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .service-card:hover::after {
-            left: 0; /* Slide in on hover */
-        }
-
         /* Hamburger menu overlay */
         .mobile-menu {
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -336,6 +256,30 @@
         .contact-modal.visible .modal-content {
             transform: translateY(0);
         }
+
+        /* --- NEW: Review Card Quote Icon --- */
+        .review-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(44, 62, 80, 0.1);
+        }
+        .review-card::before {
+            content: '\f10d'; /* FontAwesome quote-left icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            font-size: 5rem;
+            color: #1F3A47;
+            opacity: 0.05;
+            z-index: 1;
+            transform: rotate(5deg);
+        }
        
     </style>
 </head>
@@ -344,7 +288,7 @@
     <!--
       HEADER & MOBILE NAVIGATION
       Nav links updated to point to index.html for other sections.
-      'Services' link is now the active page link.
+      'Reviews' link is now the active page link.
     -->
     <header class="fixed top-0 left-0 right-0 z-50 bg-[#1F3A47]/80 backdrop-blur-lg border-b border-white/10">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -363,13 +307,11 @@
            
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-6">
-                <!-- ADDED HOME LINK -->
                 <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Home</a>
-                <!-- Active link style applied to Services -->
-                <a href="services.html" class="text-[#F5B041] font-semibold transition duration-300">Services</a>
+                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Services</a>
                 <a href="why-us.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Why Us</a>
-                <a href="testimonials.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300">Reviews</a>
-                <!-- REMOVED SERVICE AREAS LINK -->
+                <!-- Active link style applied to Reviews -->
+                <a href="reviews.html" class="text-[#F5B041] font-semibold transition duration-300">Reviews</a>
                 <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
                 <button id="nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-2 px-5 rounded-full shadow-lg transition duration-300 ease-in-out hover:bg-white hover:shadow-yellow-300/50">
                     Contact Us
@@ -388,12 +330,11 @@
         <!-- Mobile Menu Overlay - Links Updated -->
         <div id="mobile-menu" class="mobile-menu hidden md:hidden fixed top-0 left-0 w-full h-screen bg-[#1F3A47] z-[-1] pt-24 p-6">
             <div class="flex flex-col items-center text-center space-y-6">
-                <!-- ADDED HOME LINK -->
                 <a href="index.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Home</a>
-                <a href="services.html" class="text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
+                <a href="services.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Services</a>
                 <a href="why-us.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Why Us</a>
-                <a href="testimonials.html" class="text-gray-200 hover:text-[#F5B041] transition duration-300 text-2xl font-bold">Reviews</a>
-                <!-- REMOVED SERVICE AREAS LINK -->
+                <!-- Active link style applied to Reviews -->
+                <a href="reviews.html" class="text-[#F5B041] transition duration-300 text-2xl font-bold">Reviews</a>
                 <!-- NAV BUTTON UPDATED TO OPEN MODAL -->
                 <button id="mobile-nav-contact-btn" class="bg-[#F5B041] text-[#1F3A47] font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out text-xl mt-4">
                     Contact Us
@@ -404,10 +345,9 @@
 
     <main>
         <!--
-          SERVICES HERO SECTION (New)
-          A simpler, shorter hero banner for the subpage.
+          REVIEWS HERO SECTION (New)
         -->
-        <section id="services-hero" class="hero-bg min-h-[450px] flex items-center pt-24 pb-16 relative">
+        <section id="reviews-hero" class="hero-bg min-h-[450px] flex items-center pt-24 pb-16 relative">
            
             <!--
               "TWIN PHASE" WAVE ANIMATION
@@ -421,255 +361,251 @@
                 <div class="hero-content max-w-4xl mx-auto relative z-10">
                     <!-- Hero Text -->
                     <h1 class="reveal text-5xl sm:text-7xl font-extrabold uppercase tracking-tighter text-shadow-lg" style="transition-delay: 0.1s;">
-                        OUR ELECTRICAL SERVICES
+                        WHAT OUR CLIENTS SAY
                     </h1>
                     <p class="reveal text-lg md:text-2xl font-light text-gray-200 mt-6 max-w-2xl mx-auto" style="transition-delay: 0.3s;">
-                        Comprehensive solutions for your home and business. Certified, insured, and guaranteed.
+                        We're proud of our 5-star reputation. See what your neighbours in Berkshire are saying about our work.
                     </p>
                 </div>
             </div>
         </section>
 
         <!--
-          EXPANDED SERVICES SECTION (New Content)
+          NEW: GOOGLE REVIEWS SUMMARY BAR
         -->
-        <section id="services" class="py-20 md:py-28 bg-[#FAFBFC]">
+        <section id="google-summary" class="bg-white py-12">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        WHAT WE DO
-                    </h2>
-                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">We provide a full range of expert electrical solutions. If your issue isn't listed, contact us for a free quote.</p>
+                <div class="reveal bg-white rounded-lg shadow-xl border border-gray-200 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-5">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1024px-Google_%22G%22_logo.svg.png" alt="Google logo" class="w-16 h-16">
+                        <div>
+                            <div class="flex items-center">
+                                <span class="text-4xl font-extrabold text-[#1F3A47] mr-2">4.9</span>
+                                <div class="flex text-[#F5B041]">
+                                    <i class="fas fa-star text-2xl"></i>
+                                    <i class="fas fa-star text-2xl"></i>
+                                    <i class="fas fa-star text-2xl"></i>
+                                    <i class="fas fa-star text-2xl"></i>
+                                    <i class="fas fa-star-half-alt text-2xl"></i>
+                                </div>
+                            </div>
+                            <p class="text-lg text-gray-600 font-semibold">Based on 50+ Google Reviews</p>
+                        </div>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <!-- 
+                          IMPORTANT: REPLACE THIS PLACEHOLDER '#' LINK 
+                          with your actual Google Business Profile review link.
+                        -->
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-yellow-300/50">
+                            See All Google Reviews
+                        </a>
+                    </div>
                 </div>
-               
-                <!-- Expanded 7-card grid -->
+            </div>
+        </section>
+
+
+        <!--
+          REVIEWS GRID SECTION
+        -->
+        <section id="reviews-grid" class="py-20 md:py-28 bg-[#FAFBFC]">
+            <div class="container mx-auto px-6">
+                
+                <!-- Testimonial Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Service Card 1: Emergency -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.1s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Lightning Bolt -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <!-- Card 1 -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.1s;">
+                        <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"Twin Phase were lifesavers! Our power went out at 10 PM, and they were here within 30 minutes. Professional, fast, and so courteous."</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/EBF4FF/76A9FA?text=S.D." alt="Sarah D.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Sarah D.</div>
+                                    <div class="text-sm text-gray-500">Windsor, Berkshire</div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Emergency Electrical</h3>
-                        <p class="text-gray-300">24/7 urgent repairs & fault finding. We're there when you need us most for power outages, sparking, and electrical failures.</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.2s;">
+                         <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"The team installed our new EV charger. The work was incredibly tidy, the price was transparent, and they explained everything perfectly."</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/FFF3E0/FFA726?text=M.P." alt="Mark P.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Mark P.</div>
+                                    <div class="text-sm text-gray-500">Eton Wick</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.3s;">
+                         <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"Faultless EICR report for our property sale. They found a small issue and fixed it on the spot. Highly recommend for any compliance work."</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/EDE7F6/9575CD?text=R.J." alt="Richard J.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Richard J.</div>
+                                    <div class="text-sm text-gray-500">Slough</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 (NEW) -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.1s;">
+                         <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"Did a full rewire on our new house. The team was punctual, clean, and the quality of the work is outstanding. Everything is perfect. 10/10."</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/E0F2F1/4DB6AC?text=A.B." alt="Amit B.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Amit B.</div>
+                                    <div class="text-sm text-gray-500">Reading</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (NEW) -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.2s;">
+                         <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"Replaced our old fuse board. They were on time, very polite, and left the place spotless. I finally feel safe in my own home. Thank you!"</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/FCE4EC/EC407A?text=E.L." alt="Emily L.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Emily L.</div>
+                                    <div class="text-sm text-gray-500">Maidenhead</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 (NEW) -->
+                    <div class="reveal review-card bg-white border border-gray-200 rounded-lg shadow-lg p-8" style="transition-delay: 0.3s;">
+                         <div class="relative z-10">
+                            <div class="flex text-[#F5B041] mb-3">
+                                <i class="fas fa-star"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i><i class="fas fa-star ml-1"></i>
+                            </div>
+                            <p class="text-gray-700 italic text-lg mb-4">"Called them on a Sunday morning for a sparking socket. They answered immediately and sorted the problem in under an hour. True 24/7 service."</p>
+                            <div class="flex items-center">
+                                <img class="w-12 h-12 rounded-full mr-4" src="https://placehold.co/100x100/F3E5F5/AB47BC?text=C.H." alt="Chris H.">
+                                <div>
+                                    <div class="font-bold text-[#1F3A47]">Chris H.</div>
+                                    <div class="text-sm text-gray-500">Ascot</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!--
+          "OUR QUALIFICATIONS" SECTION (Imported from why-us.html)
+        -->
+        <section id="qualifications" class="py-20 md:py-28 bg-white border-y border-gray-200">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="section-heading text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
+                        WHY ARE OUR REVIEWS SO GOOD?
+                    </h2>
+                    <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Because our qualifications are your guarantee of safe, compliant, and professional workmanship.</p>
+                </div>
+               
+                <!-- 3-Column Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <!-- Qualification Card 1: NICEIC -->
+                    <div class="reveal bg-[#FAFBFC] border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.1s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">NICEIC Registered</h4>
+                            <p class="text-gray-600 mt-2">All our work is assessed annually to ensure it meets the highest standards of safety and technical excellence.</p>
+                        </div>
                     </div>
                    
-                    <!-- Service Card 2: EV Charger (New) -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.2s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: UK Plug -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 3h4v4h-4zM7 7h10v10H7zM10 17v4h4v-4"></path></svg>
+                    <!-- Qualification Card 2: City & Guilds -->
+                    <div class="reveal bg-[#FAFBFC] border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.2s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002-2h2a2 2 0 002 2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">EV Charger Installation</h3>
-                        <p class="text-gray-300">Expert installation of home and commercial electric vehicle charging stations. We handle all major brands.</p>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">City & Guilds Certified</h4>
+                            <p class="text-gray-600 mt-2">Our electricians are trained to the highest industry standards, including the latest 18th Edition wiring regulations.</p>
+                        </div>
                     </div>
 
-                    <!-- Service Card 3: Rewiring -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.3s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Home Circuit -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6-4h.01M12 12h.01M15 12h.01M12 15h.01M15 15h.01"></path></svg>
+                    <!-- Qualification Card 3: Fully Insured -->
+                    <div class="reveal bg-[#FAFBFC] border border-gray-200 rounded-lg shadow-lg p-8 flex flex-col items-center text-center" style="transition-delay: 0.3s;">
+                        <div class="flex-shrink-0 text-white bg-[#1F3A47] rounded-full p-4 mb-5">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Complete Rewiring</h3>
-                        <p class="text-gray-300">Full property electrical installations for safety, compliance, and performance. Ideal for renovations and older homes.</p>
-                    </div>
-
-                    <!-- Service Card 4: EICR (New) -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.4s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Shield Check -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.866 10.209 9 11.934 5.134-1.725 9-6.343 9-11.934 0-1.022-.175-2.006-.5-2.944z"></path></svg>
+                        <div>
+                            <h4 class="text-2xl font-bold text-[#1F3A47]">Fully Insured</h4>
+                            <p class="text-gray-600 mt-2">We carry comprehensive Public Liability Insurance for your complete peace of mind.</p>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3">Safety Inspections (EICR)</h3>
-                        <p class="text-gray-300">Certified Electrical Installation Condition Reports (EICR) for landlords, homeowners, and property sales.</p>
                     </div>
-
-                    <!-- Service Card 5: Lighting -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.5s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Lightbulb -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M12 21v-1m-6.364-1.636l.707-.707"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Lighting Design</h3>
-                        <p class="text-gray-300">Transform your spaces with smart, efficient, and beautiful lighting solutions, from garden lighting to LED upgrades.</p>
-                    </div>
-
-                    <!-- Service Card 6: Fuse Board (New) -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center" style="transition-delay: 0.6s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Server/Fusebox -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Fuse Board Upgrades</h3>
-                        <p class="text-gray-300">Replace old fuse boxes with modern, safe consumer units (RCDs) to protect your property and comply with regulations.</p>
-                    </div>
-                    
-                    <!-- Service Card 7: General (New) - UPDATED to span full width -->
-                    <div class="service-card reveal bg-[#1F3A47] text-white rounded-xl shadow-xl p-8 text-center md:col-span-2 lg:col-span-3" style="transition-delay: 0.7s;">
-                        <div class="service-icon text-6xl text-[#F5B041] mb-5">
-                            <!-- SVG: Wrench -->
-                            <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11.5c.9 0 1.6-.3 2.1-.8l8.3-8.3c.6-.6.6-1.5 0-2.1-.6-.6-1.5-.6-2.1 0l-8.3 8.3c-.5.5-.8 1.2-.8 2.1 0 1.4 1.1 2.5 2.5 2.5zM19 11.5c0 .9-.3 1.6-.8 2.1l-8.3 8.3c-.6.6-1.5.6-2.1 0-.6-.6-.6-1.5 0-2.1l8.3-8.3c.5-.5 1.2-.8 2.1-.8 1.4 0 2.5 1.1 2.5 2.5z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">General Maintenance & Enquiries</h3>
-                        <p class="text-gray-300">New socket installations, light fitting replacements, outdoor power, and all other general electrical maintenance tasks. If you don't see your service listed, just ask!</p>
-                    </div>
-
                 </div>
             </div>
         </section>
 
         <!--
-          WHY CHOOSE US SECTION (Copied from index.txt)
-          REMOVED AS REQUESTED
+          NEW "LEAVE A REVIEW" CTA
         -->
-
-        <!--
-          TRUST / TESTIMONIALS SECTION (Copied from index.txt)
-          REMOVED AS REQUESTED
-        -->
-
-        <!--
-          SERVICE AREAS SECTION (Copied from index.txt)
-          REMOVED AS REQUESTED
-        -->
-
-        <!--
-          RESTORED FINAL CTA SECTION (Copied from index.txt)
-        -->
-        <section id="cta-banner" class="py-20 md:py-28 bg-[#F5B041]">
+        <section id="leave-review-cta" class="py-20 md:py-28 bg-[#1F3A47] text-white">
             <div class="container mx-auto px-6 text-center">
-                <div class="reveal max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-6xl font-extrabold text-[#1F3A47] tracking-tight uppercase">
-                        READY TO POWER UP YOUR PROJECT?
+                <div class="reveal max-w-2xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
+                        HAVE YOUR OWN STORY TO SHARE?
                     </h2>
-                    <p class="text-xl md:text-2xl font-medium text-[#1F3A47]/80 mt-6">
-                        Get your free, no-obligation quote today from Berkshire's most trusted electricians.
+                    <p class="text-lg text-gray-300 mt-6">
+                        We're proud of our 5-star service and love to hear from our happy customers. If we've done a great job for you, we'd be thrilled if you could share your experience.
                     </p>
-                    <!-- Link updated to point to contact section on this page -->
-                    <a href="#contact" class="inline-block mt-10 bg-[#1F3A47] text-white text-xl font-bold py-5 px-14 rounded-full shadow-xl transition duration-300 ease-in-out transform hover:scale-105 hover:bg-black">
-                        REQUEST FREE QUOTE
-                    </a>
-                    <div class="mt-6 text-sm text-[#1F3A47]/70">
-                        Average response time: Under 2 hours | <strong>Emergency? Call 07443 523862 now!</strong>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <!-- 
+                          IMPORTANT: REPLACE THIS PLACEHOLDER '#' LINK 
+                          with your actual Google Business Profile review link.
+                        -->
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:bg-white">
+                            Leave a Google Review
+                        </a>
+                        <button id="leave-review-btn" class="w-full sm:w-auto border-2 border-white text-white text-lg font-bold py-4 px-10 rounded-full transition duration-300 ease-in-out hover:bg-white hover:text-[#1F3A47]">
+                            Send Feedback Privately
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-
-        <!--
-          CONTACT FORM SECTION (Copied from index.txt)
-        -->
-        <section id="contact" class="py-20 md:py-28 bg-[#1F3A47] text-gray-300">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 reveal">
-                    <h2 class="section-heading section-heading-dark text-4xl md:text-5xl font-extrabold uppercase tracking-tight">
-                        GET IN TOUCH
-                    </h2>
-                    <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">Have a question or need a quote? Fill out the form or contact us directly.</p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    
-                    <!-- Left Column: Contact Info & Map -->
-                    <div class="reveal">
-                        <div class="bg-[#2C3E50]/50 p-8 rounded-lg shadow-lg">
-                            <h3 class="text-3xl font-bold text-white mb-6">Contact Details</h3>
-                            <ul class="space-y-6 text-lg">
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 mr-4 mt-1 text-[#F5B041] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.76a11.03 11.03 0 006.97 6.97l.76-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
-                                    <div>
-                                        <span class="font-semibold text-white">Emergency Call (24/7)</span><br>
-                                        <a href="tel:07443523862" class="text-gray-300 hover:text-[#F5B041] transition duration-300">07443 523862</a>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 mr-4 mt-1 text-[#F5B041] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 5H2a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V7a2 2 0 00-2-2zM2 6.111l8 4.444 8-4.444V7H2v-.889z" clip-rule="evenodd"></path></svg>
-                                    <div>
-                                        <span class="font-semibold text-white">General Enquiries</span><br>
-                                        <a href="mailto:hello@twinphase.co.uk" class="text-gray-300 hover:text-[#F5B041] transition duration-300">hello@twinphase.co.uk</a>
-                                    </div>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 mr-4 mt-1 text-[#F5B041] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                                    <div>
-                                        <span class="font-semibold text-white">Location</span><br>
-                                        Windsor, Berkshire<br>
-                                        <span class="text-sm text-gray-400">Serving the entire Thames Valley</span>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <!-- Map Placeholder -->
-                            <div class="mt-8 rounded-lg overflow-hidden shadow-md">
-                                <!-- SEO Iframe Title Change -->
-                                <iframe 
-                                    src="https://www.google.com/maps/embed?pb=!1m18!m12!1m3!1d80019.5441584!2d-0.6548981060901754!3d51.46908233777286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48767b45cacad563%3A0x1d795db76ec5!2sWindsor!5e0!3m2!1sen!2suk!4v1679276957962!5m2!1sen!2suk" 
-                                    class="w-full h-96"
-                                    style="border:0;" 
-                                    allowfullscreen="" 
-                                    loading="lazy" 
-                                    referrerpolicy="no-referrer-when-downgrade"
-                                    title="Google Map of Windsor, Berkshire">
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Contact Form -->
-                    <div class="reveal" style="transition-delay: 0.2s;">
-                        <form action="#" method="POST" class="bg-gray-50 p-8 rounded-lg shadow-lg space-y-6">
-                            <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                                <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
-                            </div>
-                            
-                            <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                                <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
-                            </div>
-
-                            <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                                <input type="tel" name="phone" id="phone" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
-                            </div>
-
-                            <div>
-                                <label for="service" class="block text-sm font-medium text-gray-700">Service Required</label>
-                                <select id="service" name="service" class="mt-1 block w-full px-4 py-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg">
-                                    <option>Please select a service</option>
-                                    <option>Emergency Callout</option>
-                                    <option>EV Charger</option>
-                                    <option>Rewiring</option>
-                                    <option>Safety Inspection (EICR)</option>
-                                    <option>Lighting</option>
-                                    <option>Fuse Board</option>
-                                    <option>Other / General Enquiry</option>
-                                </select>
-                            </div>
-
-                            <div>
-                                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                                <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#F5B041] focus:border-[#F5B041] text-lg"></textarea>
-                            </div>
-
-                            <div>
-                                <button type="submit" class="w-full bg-[#F5B041] text-[#1F3A47] text-lg font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-yellow-300/50 animate-pulse-glow">
-                                    Send Free Quote Request
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!--
-      FOOTER (Copied from index.txt, links updated)
+      FOOTER (Links Updated)
     -->
-    <footer class="bg-[#1F3A47] text-gray-300 py-16">
+    <footer class="bg-[#1F3A47] text-gray-300 py-16 border-t border-gray-700">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
                 <!-- Column 1: Logo & Social -->
@@ -698,17 +634,15 @@
                     </div>
                 </div>
                
-                <!-- Column 2: Quick Links (Links updated) -->
+                <!-- Column 2: Quick Links (UPDATED) -->
                 <div>
                     <h4 class="text-xl font-bold text-white mb-4 uppercase tracking-wider">Quick Links</h4>
                     <ul class="space-y-2">
-                        <!-- ADDED HOME LINK -->
                         <li><a href="index.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Home</a></li>
                         <li><a href="services.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Services</a></li>
                         <li><a href="why-us.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Why Choose Us</a></li>
-                        <li><a href="testimonials.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Testimonials</a></li>
-                        <!-- "SERVICE AREAS" LINK REMOVED -->
-                        <li><a href="#contact" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Get a Quote</a></li>
+                        <li><a href="reviews.html" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Reviews</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-[#F5B041] transition duration-300">Get a Quote</a></li>
                         <li><a href="tel:07443523862" class="text-red-500 font-bold hover:text-red-400 transition duration-300">24/7 Emergency Call</a></li>
                     </ul>
                 </div>
@@ -741,7 +675,7 @@
 
 
     <!--
-      MOBILE STICKY CALL-NOW BAR (Copied from index.txt)
+      MOBILE STICKY CALL-NOW BAR
     -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#1F3A47] p-3 shadow-[0_-5px_15px_rgba(0,0,0,0.2)] flex justify-around items-center border-t-2 border-[#F5B041] z-40">
         <a href="tel:07443523862" class="flex-1 text-center bg-[#F5B041] text-[#1F3A47] text-lg font-extrabold py-3 px-6 rounded-lg shadow-lg">
@@ -852,10 +786,13 @@
             // Close mobile menu when a link is clicked
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenu.classList.remove('visible');
-                    menuIcon.classList.remove('hidden');
-                    closeIcon.classList.add('hidden');
+                    // Only close if it's a standard link, not the modal button
+                    if(link.getAttribute('href')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('visible');
+                        menuIcon.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
+                    }
                 });
             });
 
@@ -866,18 +803,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                       
-                        // --- Animated Counters ---
-                        // This section is now only for potential future counters
-                        // and won't run on the text-based stats.
-                        const counters = entry.target.querySelectorAll('.stat-counter');
-                        counters.forEach(counter => {
-                            const target = +counter.getAttribute('data-target');
-                            if (counter.innerText === "0") { // Only animate once
-                                countUp(counter, target);
-                            }
-                        });
-                       
                         observer.unobserve(entry.target); // Stop observing once visible
                     }
                 });
@@ -889,47 +814,15 @@
                 observer.observe(el);
             });
            
-            // --- Counter Animate Function (UPDATED) ---
-            // This function remains but won't be called by the "Why Us" section
-            // as it no longer uses the 'stat-counter' class.
-            function countUp(element, target) {
-                let current = 0;
-                const duration = 2000; // 2 seconds
-                // Calculate increment per frame, ensure it's at least 1
-                let increment = target / (duration / 16);
-                if (increment < 1 && target > 0) {
-                    increment = 1;
-                }
-               
-                function updateCounter() {
-                    current += increment;
-                    
-                    if (current < target) {
-                        element.innerText = Math.ceil(current).toLocaleString('en-US');
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        // Animation finished, set final precise value
-                        // Handle special cases
-                        if (target === 24) {
-                            element.innerHTML = "24<span class='text-4xl md:text-5xl lg:text-6xl'>/7</span>";
-                        } else if (target === 100) {
-                            element.innerText = target.toLocaleString('en-US') + '%';
-                        } else if (target === 50) {
-                            element.innerText = target.toLocaleString('en-US') + '+';
-                        } else {
-                            element.innerText = target.toLocaleString('en-US');
-                        }
-                    }
-                }
-                updateCounter();
-            }
-
             // --- NEW: MODAL SCRIPT ---
             const contactModal = document.getElementById('contact-modal');
             const navContactBtn = document.getElementById('nav-contact-btn');
             const mobileNavContactBtn = document.getElementById('mobile-nav-contact-btn');
             const modalBackdrop = document.getElementById('modal-backdrop');
             const modalCloseBtn = document.getElementById('modal-close-btn');
+            
+            // --- NEW: "Leave a Review" Button ---
+            const leaveReviewBtn = document.getElementById('leave-review-btn'); // Button for private feedback
 
             const modalContactForm = document.getElementById('modal-contact-form');
             const modalSubmitBtn = document.getElementById('modal-submit-btn');
@@ -950,6 +843,7 @@
 
             // Event Listeners to open
             if (navContactBtn) navContactBtn.addEventListener('click', openModal);
+            if (leaveReviewBtn) leaveReviewBtn.addEventListener('click', openModal); // <-- NEW
             if (mobileNavContactBtn) {
                 mobileNavContactBtn.addEventListener('click', () => {
                     // Close mobile menu first, then open modal
